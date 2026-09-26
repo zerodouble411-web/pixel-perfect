@@ -112,8 +112,8 @@ export function HeroSection() {
                 key={tech}
                 className="absolute rounded-xl border border-border bg-surface-2/90 px-3 py-1.5 font-mono text-xs backdrop-blur"
                 style={{
-                  left: `${50 + Math.cos(angle) * 52}%`,
-                  top: `${50 + Math.sin(angle) * 52}%`,
+                  left: `${(50 + Math.cos(angle) * 52).toFixed(3)}%`,
+                  top: `${(50 + Math.sin(angle) * 52).toFixed(3)}%`,
                   transform: "translate(-50%, -50%)",
                 }}
               >
