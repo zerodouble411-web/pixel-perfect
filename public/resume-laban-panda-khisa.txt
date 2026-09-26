@@ -1,0 +1,32 @@
+LABAN PANDA KHISA
+Backend Software Engineer — Nairobi, Kenya
+Phone: 0111679286 · Web: pandatechs.co.ke
+
+SUMMARY
+Backend engineer specialising in payment infrastructure, queue-driven systems and
+production Laravel APIs. Comfortable owning a system end to end: schema design,
+API contract, background processing, deployment and observability.
+
+CORE STACK
+Laravel 12 · PHP 8.3 · MySQL · Redis (queues, cache, locks) · Sanctum ·
+M-Pesa Daraja (STK Push, C2B, B2C) · Docker · Nginx/VPS ·
+React 19 · TypeScript · TanStack Query · Tailwind CSS
+
+SELECTED PROJECTS
+KHWWC Platform (2024) — Welfare contribution and payout platform. Double-entry
+wallet ledger, STK Push collections, idempotent callbacks, queued reconciliation
+and settlement reporting. Reconciliation fell from two days to minutes.
+
+Motorbike Business OS (2025) — Fleet, rider and loan repayment operating system.
+Offline-tolerant repayment capture, scheduled arrears scoring, cached reporting.
+Collection rate improved 18%; report generation from 12s to 0.4s.
+
+PandaAI (2025) — Provider-agnostic AI workspace. Laravel gateway with Redis token
+budgets, streamed responses and an immutable conversation log.
+
+ENGINEERING PRACTICE
+Form requests and API resources on every endpoint · Policies for authorisation ·
+Jobs with retry, backoff and dead-letter review · Idempotency keys on money paths ·
+Tests around domain services · Trunk-based Git flow with automated checks.
+
+This document is generated from the portfolio demo data.
