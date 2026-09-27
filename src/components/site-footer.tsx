@@ -42,7 +42,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border px-4 py-5 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} {hero.name}. Frontend demo data; Laravel 12 API contract in /backend.
+        © {new Date().getFullYear()} {hero.name}.
       </div>
     </footer>
   );

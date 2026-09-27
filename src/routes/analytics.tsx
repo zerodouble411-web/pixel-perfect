@@ -22,8 +22,7 @@ function AnalyticsPage() {
       <p className="eyebrow">Operations</p>
       <h1 className="mt-3 font-display text-4xl font-bold">Analytics dashboard</h1>
       <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-        The kind of view I build for every system I ship. Figures here are demo data served through the same data layer
-        the Laravel API will use.
+         An example of an operational dashboard. Charts use illustrative figures; no production analytics feed is connected.
       </p>
       <div className="mt-10">
         <AnalyticsDashboard />

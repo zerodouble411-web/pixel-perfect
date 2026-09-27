@@ -3,7 +3,6 @@ import {
   BarChart3,
   Inbox,
   LayoutDashboard,
-  Lock,
   MessageSquareQuote,
   Sparkles,
   Trash2,
@@ -18,17 +17,14 @@ export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
       { title: "Admin CMS — Laban Panda Khisa" },
-      { name: "description", content: "Demo content management console for the portfolio: hero, skills, projects, testimonials and messages." },
+      { name: "description", content: "Portfolio content editor preview for hero, skills, projects and testimonials." },
       { property: "og:title", content: "Admin CMS — Laban Panda Khisa" },
-      { property: "og:description", content: "Demo CMS backed by the Laravel 12 admin API contract." },
+      { property: "og:description", content: "Portfolio content editor preview, pending a connected API." },
       { name: "robots", content: "noindex" },
     ],
   }),
   component: AdminPage,
 });
-
-const DEMO_EMAIL = "admin@pandatechs.co.ke";
-const DEMO_PASSWORD = "demo1234";
 
 const tabs = [
   { id: "hero", label: "Hero", icon: Sparkles },
@@ -44,55 +40,13 @@ type TabId = (typeof tabs)[number]["id"];
 const field = "w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:border-primary";
 
 function AdminPage() {
-  const [authed, setAuthed] = useState(false);
-  const [email, setEmail] = useState(DEMO_EMAIL);
-  const [password, setPassword] = useState(DEMO_PASSWORD);
   const [tab, setTab] = useState<TabId>("hero");
 
   const [heroDraft, setHeroDraft] = useState({ ...heroSeed });
   const [skillList, setSkillList] = useState(skillSeed.map((s) => ({ name: s.name, level: s.level, category: s.category })));
   const [projectList, setProjectList] = useState(projectSeed.map((p) => ({ slug: p.slug, name: p.name, category: p.category, featured: p.featured })));
   const [quotes, setQuotes] = useState(testimonialSeed.map((t) => ({ ...t })));
-  const [messages, setMessages] = useState([
-    { id: 1, name: "Demo enquiry", email: "ops@example.co.ke", subject: "Wallet reconciliation rescue", read: false },
-    { id: 2, name: "Demo enquiry", email: "cto@example.com", subject: "STK Push integration", read: true },
-    { id: 3, name: "Demo enquiry", email: "pm@example.org", subject: "Queue worker audit", read: false },
-  ]);
-
-  if (!authed) {
-    return (
-      <div className="mx-auto flex max-w-md flex-col justify-center px-4 py-24">
-        <div className="panel p-8">
-          <span className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-            <Lock className="size-5" />
-          </span>
-          <h1 className="mt-5 font-display text-2xl font-bold">Admin sign in</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Demo console. The live build authenticates against <span className="font-mono text-xs">POST /api/login</span> with Sanctum tokens.
-          </p>
-          <form
-            className="mt-6 space-y-3"
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
-                setAuthed(true);
-                toast.success("Signed in to the demo CMS");
-              } else {
-                toast.error("Use the demo credentials shown below");
-              }
-            }}
-          >
-            <input className={field} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-            <input className={field} type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-            <button className="w-full rounded-lg bg-flame px-4 py-2.5 text-sm font-semibold text-primary-foreground">Sign in</button>
-          </form>
-          <p className="mt-4 rounded-lg border border-border bg-surface-2 p-3 font-mono text-xs text-muted-foreground">
-            {DEMO_EMAIL} / {DEMO_PASSWORD}
-          </p>
-        </div>
-      </div>
-    );
-  }
+  const messages: { id: number; name: string; email: string; subject: string; read: boolean }[] = [];
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
@@ -101,9 +55,7 @@ function AdminPage() {
           <p className="eyebrow">Content management</p>
           <h1 className="mt-2 font-display text-3xl font-bold">Admin CMS</h1>
         </div>
-        <button onClick={() => setAuthed(false)} className="rounded-full border border-border px-4 py-2 text-xs hover:border-primary/60 hover:text-primary">
-          Sign out
-        </button>
+        <p className="text-xs text-muted-foreground">Editor preview · Changes are not saved or published</p>
       </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[220px_1fr]">
@@ -140,10 +92,10 @@ function AdminPage() {
                 ))}
               </div>
               <button
-                onClick={() => toast.success("Hero saved (demo — no page reload)")}
+                onClick={() => toast.info("Changes are only visible in this editor until the API is connected")}
                 className="mt-5 rounded-full bg-flame px-5 py-2.5 text-sm font-semibold text-primary-foreground"
               >
-                Save changes
+                Preview changes
               </button>
             </section>
           ) : null}
@@ -174,7 +126,7 @@ function AdminPage() {
                       aria-label={`Delete ${s.name}`}
                       onClick={() => {
                         setSkillList(skillList.filter((_, xi) => xi !== i));
-                        toast.success("Skill deleted (demo)");
+                         toast.info("Removed from this editor only");
                       }}
                       className="text-muted-foreground hover:text-destructive"
                     >
@@ -212,10 +164,10 @@ function AdminPage() {
                 ))}
               </div>
               <button
-                onClick={() => toast.success("Projects saved (demo)")}
+                 onClick={() => toast.info("Changes are only visible in this editor until the API is connected")}
                 className="mt-5 rounded-full bg-flame px-5 py-2.5 text-sm font-semibold text-primary-foreground"
               >
-                Save changes
+                 Preview changes
               </button>
             </section>
           ) : null}
@@ -248,11 +200,11 @@ function AdminPage() {
             <section className="panel p-6">
               <h2 className="font-display text-lg font-semibold">Inbox</h2>
               <p className="mt-1 font-mono text-xs text-muted-foreground">GET /api/admin/messages</p>
-              <div className="mt-5 space-y-2">
+               <div className="mt-5 space-y-2">
                 {messages.map((m) => (
                   <button
                     key={m.id}
-                    onClick={() => setMessages(messages.map((x) => (x.id === m.id ? { ...x, read: true } : x)))}
+                     onClick={() => {}}
                     className={`flex w-full items-center justify-between rounded-lg border p-4 text-left ${
                       m.read ? "border-border" : "border-primary/50 bg-primary/5"
                     }`}
@@ -264,6 +216,7 @@ function AdminPage() {
                     {!m.read ? <span className="rounded-full bg-primary/15 px-2 py-1 text-[0.65rem] text-primary">new</span> : null}
                   </button>
                 ))}
+                 <p className="text-sm text-muted-foreground">No messages. Online contact is not connected yet.</p>
               </div>
             </section>
           ) : null}

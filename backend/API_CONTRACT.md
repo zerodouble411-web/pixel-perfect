@@ -30,6 +30,8 @@ and `VITE_API_URL` switches the app to the live API with no component changes.
 | GET    | `/portfolio/analytics`        | `{ requests[], queue[], payments[], deployments[] }` |
 | GET    | `/portfolio/github-activity`  | `{ note, totals: { commits, repositories, streak, reviews }, weeks }` |
 
+Skills include Node.js and Python under Backend, and bank integrations and currency converter API integrations under Integrations. Services include an API Integrations entry. These use the existing skill and service shapes.
+
 ## Projects
 
 | Method | Endpoint            | Query                          |
