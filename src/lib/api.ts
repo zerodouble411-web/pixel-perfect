@@ -21,6 +21,7 @@ import {
 } from "./portfolio-data";
 
 const USE_API = false;
+export const CONTACT_API_ENABLED = USE_API;
 export const API_BASE = import.meta.env["VITE_API_URL"] ?? "https://api.pandatechs.co.ke/api";
 
 async function mock<T>(value: T, ms = 220): Promise<T> {
@@ -66,7 +67,7 @@ export const api = {
     return request<Project | null>(`/projects/${slug}`, found);
   },
   sendMessage: async (payload: { name: string; email: string; projectType: string; budget: string; message: string }) => {
-    if (!USE_API) return mock({ status: "ok", id: `msg_${Date.now()}` }, 700);
+    if (!USE_API) throw new Error("Online contact is not connected yet");
     const res = await fetch(`${API_BASE}/contact`, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },

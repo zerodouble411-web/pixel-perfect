@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { Check, Clock, Globe, Loader2, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
-import { api } from "@/lib/api";
+import { api, CONTACT_API_ENABLED } from "@/lib/api";
 import { hero } from "@/lib/portfolio-data";
 
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
@@ -88,9 +88,10 @@ export function ContactSection() {
             {errors.message ? <p className="mt-1 text-xs text-destructive">{errors.message}</p> : null}
           </div>
 
+          {!CONTACT_API_ENABLED ? <p className="text-sm text-muted-foreground">Online messages are not connected yet. Please call {hero.phone} instead.</p> : null}
           <button
             type="submit"
-            disabled={mutation.isPending}
+            disabled={mutation.isPending || !CONTACT_API_ENABLED}
             className="inline-flex items-center gap-2 rounded-full bg-flame px-6 py-3 text-sm font-semibold text-primary-foreground disabled:opacity-60"
           >
             {mutation.isPending ? <Loader2 className="size-4 animate-spin" /> : sent ? <Check className="size-4" /> : <Send className="size-4" />}
@@ -99,9 +100,10 @@ export function ContactSection() {
 
           {sent ? (
             <p className="animate-rise text-xs text-success">
-              Thanks — your message is queued in the demo inbox and appears in the admin CMS.
+              Thanks — your message has been sent.
             </p>
           ) : null}
+          {mutation.isError ? <p className="text-xs text-destructive">Message could not be sent. Please call {hero.phone} instead.</p> : null}
         </form>
 
         <aside className="panel h-fit space-y-4 p-6 text-sm">
