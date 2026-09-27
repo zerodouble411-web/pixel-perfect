@@ -1,9 +1,9 @@
-import { ArrowUpRight, Cpu, LayoutDashboard, Server, Wallet } from "lucide-react";
+import { ArrowUpRight, Cpu, LayoutDashboard, Server, Wallet, Landmark } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { services, type Service } from "@/lib/portfolio-data";
 
-const icons = [Server, Wallet, Cpu, LayoutDashboard];
+const icons = [Server, Wallet, Cpu, LayoutDashboard, Landmark];
 
 export function ServicesSection() {
   const [active, setActive] = useState<Service | null>(null);
@@ -14,7 +14,7 @@ export function ServicesSection() {
         <p className="eyebrow text-center">What I do</p>
         <h2 className="mt-3 text-center font-display text-3xl font-bold sm:text-4xl">Services</h2>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => {
             const Icon = icons[i] ?? Server;
             return (

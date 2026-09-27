@@ -8,8 +8,8 @@ production Laravel APIs. Comfortable owning a system end to end: schema design,
 API contract, background processing, deployment and observability.
 
 CORE STACK
-Laravel 12 · PHP 8.3 · MySQL · Redis (queues, cache, locks) · Sanctum ·
-M-Pesa Daraja (STK Push, C2B, B2C) · Docker · Nginx/VPS ·
+Laravel 12 · PHP 8.3 · Node.js · Python · MySQL · Redis (queues, cache, locks) · Sanctum ·
+M-Pesa Daraja (STK Push, C2B, B2C) · Bank API integrations · Currency converter APIs · Docker · Nginx/VPS ·
 React 19 · TypeScript · TanStack Query · Tailwind CSS
 
 SELECTED PROJECTS
@@ -29,4 +29,3 @@ Form requests and API resources on every endpoint · Policies for authorisation 
 Jobs with retry, backoff and dead-letter review · Idempotency keys on money paths ·
 Tests around domain services · Trunk-based Git flow with automated checks.
 
-This document is generated from the portfolio demo data.

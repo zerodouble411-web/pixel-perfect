@@ -110,8 +110,8 @@ export const services: Service[] = [
   {
     id: "backend",
     title: "Backend Development",
-    description: "Laravel APIs designed around domain boundaries, not controllers.",
-    technologies: ["Laravel 12", "Sanctum", "MySQL", "Redis"],
+    description: "Backend APIs designed around domain boundaries, not controllers.",
+    technologies: ["Laravel 12", "Node.js", "Python", "MySQL", "Redis"],
     details: [
       "Form requests and API resources for every endpoint",
       "Token authentication and granular policies",
@@ -155,6 +155,17 @@ export const services: Service[] = [
       "Charts and operational views",
     ],
   },
+  {
+    id: "integrations",
+    title: "API Integrations",
+    description: "Bank integrations and currency converter APIs for connected financial workflows.",
+    technologies: ["Bank APIs", "Currency converter APIs", "Webhooks"],
+    details: [
+      "Bank API connectivity and payment workflows",
+      "Currency conversion API integrations",
+      "Webhook handling and resilient error recovery",
+    ],
+  },
 ];
 
 export type Skill = { name: string; level: number; category: string; note: string; projects: string[] };
@@ -162,6 +173,8 @@ export type Skill = { name: string; level: number; category: string; note: strin
 export const skills: Skill[] = [
   { name: "Laravel", level: 96, category: "Backend", note: "Primary framework since 2021. Queues, policies, resources, testing.", projects: ["khwwc-platform", "motorbike-business-os"] },
   { name: "PHP", level: 94, category: "Backend", note: "Modern PHP 8.3 with typed properties and enums.", projects: ["khwwc-platform"] },
+  { name: "Node.js", level: 82, category: "Backend", note: "JavaScript services and API integration workflows.", projects: [] },
+  { name: "Python", level: 82, category: "Backend", note: "Backend scripting and API integration workflows.", projects: [] },
   { name: "MySQL", level: 88, category: "Database", note: "Schema design, indexing, slow query analysis.", projects: ["khwwc-platform", "motorbike-business-os"] },
   { name: "Redis", level: 90, category: "Infrastructure", note: "Queues, caching, locks and rate limiting in production.", projects: ["khwwc-platform", "panda-ai"] },
   { name: "REST API design", level: 93, category: "Backend", note: "Versioning, pagination, error contracts, idempotency.", projects: ["khwwc-platform", "panda-ai"] },
@@ -170,11 +183,13 @@ export const skills: Skill[] = [
   { name: "Docker", level: 78, category: "Infrastructure", note: "Local parity and deployment images.", projects: ["motorbike-business-os"] },
   { name: "Linux / VPS", level: 82, category: "Infrastructure", note: "Nginx, supervisor, certbot, zero-drama deploys.", projects: ["khwwc-platform"] },
   { name: "M-Pesa Daraja", level: 92, category: "Payments", note: "STK Push, C2B, B2C and callback reconciliation.", projects: ["khwwc-platform", "motorbike-business-os"] },
+  { name: "Bank integrations", level: 82, category: "Integrations", note: "Connecting banking APIs to payment workflows.", projects: [] },
+  { name: "Currency converter APIs", level: 82, category: "Integrations", note: "Exchange-rate API connectivity and currency conversion workflows.", projects: [] },
   { name: "Tailwind CSS", level: 88, category: "Frontend", note: "Token-driven design systems.", projects: ["panda-ai"] },
   { name: "Git / CI", level: 86, category: "Tooling", note: "Trunk-based flow with automated checks.", projects: ["khwwc-platform"] },
 ];
 
-export const skillCategories = ["All", "Backend", "Payments", "Infrastructure", "Database", "Frontend", "Tooling"];
+export const skillCategories = ["All", "Backend", "Payments", "Integrations", "Infrastructure", "Database", "Frontend", "Tooling"];
 
 export type Project = {
   slug: string;
@@ -479,26 +494,7 @@ export const architecture: { nodes: ArchNode[]; flow: string[] } = {
   flow: ["client", "api", "redis", "workers", "mysql"],
 };
 
-export const testimonials = [
-  {
-    name: "Demo reviewer",
-    role: "Operations lead (demo data)",
-    quote:
-      "The reconciliation dashboard replaced two days of spreadsheet work. Payments now match themselves and disputes are rare.",
-  },
-  {
-    name: "Demo reviewer",
-    role: "Founder, logistics SME (demo data)",
-    quote:
-      "Laban treats the backend like infrastructure, not scripts. Queues, retries and audit trails were designed in from day one.",
-  },
-  {
-    name: "Demo reviewer",
-    role: "Product manager (demo data)",
-    quote:
-      "Clear API contracts meant the front-end team was never blocked. Every endpoint arrived documented and versioned.",
-  },
-];
+export const testimonials: { name: string; role: string; quote: string }[] = [];
 
 export const analytics = {
   requests: [
@@ -532,8 +528,8 @@ export const analytics = {
 };
 
 export const githubActivity = {
-  note: "Demo data — not connected to a real GitHub account.",
-  totals: { commits: 1284, repositories: 27, streak: 46, reviews: 193 },
+  note: "GitHub account not connected.",
+  totals: { commits: 0, repositories: 0, streak: 0, reviews: 0 },
   weeks: 52,
 };
 

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Download, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
-import heroRing from "@/assets/hero-ring.jpg";
+import portrait from "@/assets/laban-panda-khisa.png.asset.json";
 import { hero } from "@/lib/portfolio-data";
 
 function useTypedRole(roles: string[]) {
@@ -33,7 +33,7 @@ function useTypedRole(roles: string[]) {
   return text;
 }
 
-const orbit = ["Laravel", "Redis", "MySQL", "React", "M-Pesa", "Docker"];
+const orbit = ["Laravel", "Node.js", "Python", "React", "Bank APIs", "FX APIs"];
 
 export function HeroSection() {
   const typed = useTypedRole(hero.roles);
@@ -43,7 +43,7 @@ export function HeroSection() {
       <div className="grid-bg pointer-events-none absolute inset-0 opacity-40" />
       <div className="pointer-events-none absolute -left-40 top-0 size-[32rem] rounded-full bg-primary/10 blur-[120px]" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:py-16">
         <div className="animate-rise">
           <p className="eyebrow">— Hello, I'm</p>
           <h1 className="mt-3 font-display text-4xl font-bold leading-tight sm:text-6xl">
@@ -95,15 +95,15 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="relative mx-auto aspect-square w-full max-w-md">
+        <div className="relative mx-auto aspect-square w-full max-w-[17rem] sm:max-w-sm lg:max-w-md">
           <div className="absolute inset-0 rounded-full border border-primary/25 animate-spin-slow" />
           <div className="absolute inset-6 rounded-full border border-dashed border-primary/20" />
           <img
-            src={heroRing}
-            width={1024}
-            height={1024}
-            alt="Illustration of an orange circuit ring surrounded by server and cache nodes"
-            className="relative size-full rounded-full object-cover opacity-90 glow-ring"
+            src={portrait.url}
+            width={1145}
+            height={1374}
+            alt="Portrait of Laban Panda Khisa"
+            className="relative size-full rounded-full border-2 border-primary/40 object-cover object-top glow-ring"
           />
           {orbit.map((tech, i) => {
             const angle = (i / orbit.length) * Math.PI * 2;
@@ -112,8 +112,8 @@ export function HeroSection() {
                 key={tech}
                 className="absolute rounded-xl border border-border bg-surface-2/90 px-3 py-1.5 font-mono text-xs backdrop-blur"
                 style={{
-                  left: `${(50 + Math.cos(angle) * 52).toFixed(3)}%`,
-                  top: `${(50 + Math.sin(angle) * 52).toFixed(3)}%`,
+                  left: `${(50 + Math.cos(angle) * 48).toFixed(3)}%`,
+                  top: `${(50 + Math.sin(angle) * 48).toFixed(3)}%`,
                   transform: "translate(-50%, -50%)",
                 }}
               >
