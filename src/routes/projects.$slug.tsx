@@ -110,7 +110,7 @@ function ProjectDetail() {
       </section>
 
       <section className="mt-12">
-        <h2 className="font-display text-xl font-semibold">Live metrics <span className="text-xs font-normal text-muted-foreground">(demo data)</span></h2>
+        <h2 className="font-display text-xl font-semibold">Illustrative metrics <span className="text-xs font-normal text-muted-foreground">(not connected to production)</span></h2>
         <div className="panel mt-4 h-64 p-5">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={project.metrics}>

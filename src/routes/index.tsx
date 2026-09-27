@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Backend engineer building M-Pesa payment infrastructure, Redis queue systems and Laravel 12 APIs. Explore live dashboards, case studies and architecture.",
+          "Backend engineer building M-Pesa payment infrastructure, Redis queue systems and Laravel 12 APIs. Explore projects, case studies and architecture.",
       },
       { property: "og:title", content: "Laban Panda Khisa — Backend Software Engineer" },
       {

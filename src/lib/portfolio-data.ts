@@ -46,10 +46,10 @@ export type StatCard = {
 };
 
 export const liveCards: StatCard[] = [
-  { label: "Production Systems", value: "Multiple", detail: "Deployed & monitored", trend: 4 },
-  { label: "Payment Infrastructure", value: "STK Push + Wallet", detail: "M-Pesa Daraja", trend: 12 },
-  { label: "Redis Queue Systems", value: "Active", detail: "Workers healthy", trend: 7 },
-  { label: "AI Engineering", value: "Copilot + ChatGPT + Kiro", detail: "Daily workflow", trend: 3 },
+  { label: "Backend", value: "Laravel · Node.js · Python", detail: "API development", trend: 0 },
+  { label: "Payments", value: "M-Pesa · Bank APIs", detail: "Payment integrations", trend: 0 },
+  { label: "Data & Infrastructure", value: "MySQL · Redis", detail: "Queues, cache and storage", trend: 0 },
+  { label: "Integrations", value: "Currency converter APIs", detail: "Exchange-rate connectivity", trend: 0 },
 ];
 
 export const counters = [
