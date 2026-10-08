@@ -10,7 +10,7 @@ import { SkillsSection } from "@/components/sections/skills-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { projects } from "@/lib/portfolio-data";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
       { title: "Laban Panda Khisa — Backend Software Engineer" },
