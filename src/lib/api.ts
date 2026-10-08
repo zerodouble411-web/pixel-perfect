@@ -19,7 +19,7 @@ import {
   testimonials,
   type Project,
 } from "./portfolio-data";
-import { solutions, type Solution } from "./company-data";
+import { company, solutions, type Solution } from "./company-data";
 
 const USE_API = false;
 export const CONTACT_API_ENABLED = USE_API;
@@ -39,6 +39,7 @@ async function request<T>(path: string, fallback: T): Promise<T> {
 }
 
 export const api = {
+  company: () => request("/company", company),
   hero: () => request("/portfolio/hero", hero),
   about: () => request("/portfolio/about", about),
   services: () => request("/portfolio/services", services),
