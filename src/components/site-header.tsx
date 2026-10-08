@@ -4,9 +4,10 @@ import { useState } from "react";
 
 const nav = [
   { to: "/", label: "Home" },
+  { to: "/solutions", label: "Solutions" },
+  { to: "/portfolio", label: "CEO Portfolio" },
   { to: "/projects", label: "Projects" },
   { to: "/architecture", label: "Architecture" },
-  { to: "/analytics", label: "Analytics" },
   { to: "/lab", label: "Lab" },
 ];
 
@@ -41,7 +42,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <Link
-            to="/"
+            to="/portfolio"
             hash="contact"
             className="hidden rounded-full border border-primary/50 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/10 sm:inline-flex"
           >

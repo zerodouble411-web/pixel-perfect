@@ -19,6 +19,7 @@ import {
   testimonials,
   type Project,
 } from "./portfolio-data";
+import { solutions, type Solution } from "./company-data";
 
 const USE_API = false;
 export const CONTACT_API_ENABLED = USE_API;
@@ -47,6 +48,7 @@ export const api = {
   architecture: () => request("/portfolio/architecture", architecture),
   analytics: () => request("/portfolio/analytics", analytics),
   github: () => request("/portfolio/github-activity", githubActivity),
+  solutions: () => request<Solution[]>("/company/solutions", solutions),
   projects: (params?: { search?: string; category?: string; featured?: boolean }) => {
     const query = new URLSearchParams();
     if (params?.search) query.set("search", params.search);

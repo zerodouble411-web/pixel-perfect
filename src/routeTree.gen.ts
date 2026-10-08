@@ -9,19 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as ArchitectureRouteImport } from './routes/architecture'
 import { Route as LabRouteImport } from './routes/lab'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -42,6 +37,11 @@ const LabRoute = LabRouteImport.update({
   path: '/lab',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
@@ -54,82 +54,75 @@ const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/analytics': typeof AnalyticsRoute
   '/architecture': typeof ArchitectureRoute
   '/lab': typeof LabRoute
+  '/portfolio': typeof PortfolioRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/analytics': typeof AnalyticsRoute
   '/architecture': typeof ArchitectureRoute
   '/lab': typeof LabRoute
+  '/portfolio': typeof PortfolioRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/analytics': typeof AnalyticsRoute
   '/architecture': typeof ArchitectureRoute
   '/lab': typeof LabRoute
+  '/portfolio': typeof PortfolioRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
     | '/admin'
     | '/analytics'
     | '/architecture'
     | '/lab'
+    | '/portfolio'
     | '/projects/$slug'
     | '/projects/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/admin'
     | '/analytics'
     | '/architecture'
     | '/lab'
+    | '/portfolio'
     | '/projects/$slug'
     | '/projects'
   id:
     | '__root__'
-    | '/'
     | '/admin'
     | '/analytics'
     | '/architecture'
     | '/lab'
+    | '/portfolio'
     | '/projects/$slug'
     | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
   AnalyticsRoute: typeof AnalyticsRoute
   ArchitectureRoute: typeof ArchitectureRoute
   LabRoute: typeof LabRoute
+  PortfolioRoute: typeof PortfolioRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/admin': {
       id: '/admin'
       path: '/admin'
@@ -158,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LabRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/': {
       id: '/projects/'
       path: '/projects'
@@ -176,11 +176,11 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
   AnalyticsRoute: AnalyticsRoute,
   ArchitectureRoute: ArchitectureRoute,
   LabRoute: LabRoute,
+  PortfolioRoute: PortfolioRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
 }

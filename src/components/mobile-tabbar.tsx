@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { BarChart3, Home, Layers, SquareTerminal, Workflow } from "lucide-react";
+import { Boxes, Home, Layers, SquareTerminal, User } from "lucide-react";
 
 const tabs = [
   { to: "/", label: "Home", icon: Home, exact: true },
+  { to: "/solutions", label: "Systems", icon: Boxes, exact: false },
+  { to: "/portfolio", label: "CEO", icon: User, exact: false },
   { to: "/projects", label: "Work", icon: Layers, exact: false },
-  { to: "/architecture", label: "Arch", icon: Workflow, exact: false },
-  { to: "/analytics", label: "Stats", icon: BarChart3, exact: false },
   { to: "/lab", label: "Lab", icon: SquareTerminal, exact: false },
 ];
 
