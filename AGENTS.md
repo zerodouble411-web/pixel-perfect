@@ -15,3 +15,4 @@
 - Mock data shapes in `src/lib/portfolio-data.ts` must stay identical to `backend/API_CONTRACT.md`; change both together.
 - `backend/` holds the Laravel 12 API scaffold. It is not built or run by the frontend toolchain.
 - Colors, gradients and shadows come from tokens in `src/styles.css`; components never hardcode color utilities.
+- The company opening uses `CompanyShell` for presentation-only code typing and reads company content through `api.company`, keeping the route independent of the data source.

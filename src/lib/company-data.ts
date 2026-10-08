@@ -15,6 +15,19 @@ export const company = {
   website: "pandatechs.co.ke",
   phone: "0111679286",
   location: "Nairobi, Kenya",
+  shellCode: `<?php
+
+namespace Pandatechs\\Engineering;
+
+// From your first website to your next enterprise platform.
+$systems = ['Websites', 'POS', 'Schools', 'Hospitals', 'Finance'];
+
+foreach ($systems as $system) {
+    Platform::build($system)
+        ->integrate(['M-Pesa', 'Bank APIs', 'Currency APIs'])
+        ->engineer('Laravel', 'Node.js', 'Python')
+        ->deliver();
+}`,
   ceo: {
     name: "Laban Panda Khisa",
     role: "Founder & CEO, Backend Software Engineer",

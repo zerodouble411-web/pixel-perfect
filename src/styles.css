@@ -34,6 +34,12 @@
   --color-surface-2: var(--surface-2);
   --color-success: var(--success);
   --color-warning: var(--warning);
+  --color-shell: var(--shell);
+  --color-code-keyword: var(--code-keyword);
+  --color-code-string: var(--code-string);
+  --color-code-function: var(--code-function);
+  --color-code-variable: var(--code-variable);
+  --color-code-comment: var(--code-comment);
   --color-ring-offset-background: var(--background);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -78,6 +84,12 @@
   --surface-2: oklch(0.22 0.011 70);
   --success: oklch(0.72 0.16 155);
   --warning: oklch(0.8 0.15 85);
+  --shell: oklch(0.105 0 0);
+  --code-keyword: oklch(0.77 0.15 330);
+  --code-string: oklch(0.8 0.14 155);
+  --code-function: oklch(0.82 0.13 85);
+  --code-variable: oklch(0.79 0.12 230);
+  --code-comment: oklch(0.6 0.015 160);
   --chart-1: oklch(0.74 0.168 57);
   --chart-2: oklch(0.8 0.13 85);
   --chart-3: oklch(0.65 0.13 30);
