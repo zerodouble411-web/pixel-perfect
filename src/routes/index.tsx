@@ -28,7 +28,7 @@ function Home() {
         <div className="mx-auto max-w-7xl px-4 py-24 text-center sm:px-6">
           <p className="eyebrow">{company.location}</p>
           <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-6xl">
-            Software that runs your <span className="text-gradient-flame">business</span>
+            Software that runs your <span className="text-flame">business</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">{company.tagline}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
