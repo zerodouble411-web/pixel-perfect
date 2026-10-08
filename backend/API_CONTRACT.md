@@ -102,3 +102,8 @@ Status codes: `401` unauthenticated, `403` unauthorised, `404` missing,
 - Jobs declare `$tries` and `$backoff`; failures land in `failed_jobs`.
 - Scheduler runs nightly settlement/report jobs.
 - Storage disk `public` (or S3) holds project gallery images and exports.
+
+
+## Company solutions
+
+`GET /api/company/solutions` → `{ data: Solution[] }` where Solution = `{ slug, name, tier: "Starter"|"Business"|"Enterprise", category, summary, features: string[] }`.

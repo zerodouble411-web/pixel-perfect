@@ -14,6 +14,8 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as ArchitectureRouteImport } from './routes/architecture'
 import { Route as LabRouteImport } from './routes/lab'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
@@ -42,6 +44,16 @@ const LabRoute = LabRouteImport.update({
   path: '/lab',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
@@ -59,6 +71,8 @@ export interface FileRoutesByFullPath {
   '/analytics': typeof AnalyticsRoute
   '/architecture': typeof ArchitectureRoute
   '/lab': typeof LabRoute
+  '/portfolio': typeof PortfolioRoute
+  '/solutions': typeof SolutionsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
 }
@@ -68,6 +82,8 @@ export interface FileRoutesByTo {
   '/analytics': typeof AnalyticsRoute
   '/architecture': typeof ArchitectureRoute
   '/lab': typeof LabRoute
+  '/portfolio': typeof PortfolioRoute
+  '/solutions': typeof SolutionsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects': typeof ProjectsIndexRoute
 }
@@ -78,6 +94,8 @@ export interface FileRoutesById {
   '/analytics': typeof AnalyticsRoute
   '/architecture': typeof ArchitectureRoute
   '/lab': typeof LabRoute
+  '/portfolio': typeof PortfolioRoute
+  '/solutions': typeof SolutionsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
 }
@@ -89,6 +107,8 @@ export interface FileRouteTypes {
     | '/analytics'
     | '/architecture'
     | '/lab'
+    | '/portfolio'
+    | '/solutions'
     | '/projects/$slug'
     | '/projects/'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +118,8 @@ export interface FileRouteTypes {
     | '/analytics'
     | '/architecture'
     | '/lab'
+    | '/portfolio'
+    | '/solutions'
     | '/projects/$slug'
     | '/projects'
   id:
@@ -107,6 +129,8 @@ export interface FileRouteTypes {
     | '/analytics'
     | '/architecture'
     | '/lab'
+    | '/portfolio'
+    | '/solutions'
     | '/projects/$slug'
     | '/projects/'
   fileRoutesById: FileRoutesById
@@ -117,6 +141,8 @@ export interface RootRouteChildren {
   AnalyticsRoute: typeof AnalyticsRoute
   ArchitectureRoute: typeof ArchitectureRoute
   LabRoute: typeof LabRoute
+  PortfolioRoute: typeof PortfolioRoute
+  SolutionsRoute: typeof SolutionsRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
@@ -158,6 +184,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LabRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/': {
       id: '/projects/'
       path: '/projects'
@@ -181,6 +221,8 @@ const rootRouteChildren: RootRouteChildren = {
   AnalyticsRoute: AnalyticsRoute,
   ArchitectureRoute: ArchitectureRoute,
   LabRoute: LabRoute,
+  PortfolioRoute: PortfolioRoute,
+  SolutionsRoute: SolutionsRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
 }
