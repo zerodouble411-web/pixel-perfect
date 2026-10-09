@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { hero } from "@/lib/portfolio-data";
+import { Button } from "@/components/ui/button";
 
 export function SiteFooter() {
   return (
@@ -31,6 +32,15 @@ export function SiteFooter() {
             <li><Link to="/analytics" className="hover:text-primary">Analytics</Link></li>
             <li><Link to="/lab" className="hover:text-primary">Engineering lab</Link></li>
             <li><Link to="/admin" className="hover:text-primary">Admin CMS</Link></li>
+            <li>
+              <Button
+                variant="link"
+                className="h-auto p-0 text-muted-foreground"
+                onClick={() => window.dispatchEvent(new Event("pandatechs:open-cookie-settings"))}
+              >
+                Cookie settings
+              </Button>
+            </li>
           </ul>
         </div>
         <div>
