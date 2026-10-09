@@ -16,7 +16,13 @@ export const Route = createFileRoute("/projects/")({
       },
       { property: "og:title", content: "Projects — Laban Panda Khisa" },
       { property: "og:description", content: "Production case studies: payments, operations and AI systems." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/projects" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Projects — Laban Panda Khisa" },
+      { name: "twitter:description", content: "Production case studies: payments, operations and AI systems." },
     ],
+    links: [{ rel: "canonical", href: "/projects" }],
   }),
   component: ProjectsPage,
 });

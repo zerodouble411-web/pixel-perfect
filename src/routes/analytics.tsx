@@ -11,7 +11,13 @@ export const Route = createFileRoute("/analytics")({
       },
       { property: "og:title", content: "Analytics — Laban Panda Khisa" },
       { property: "og:description", content: "API traffic, queue health and payment outcomes at a glance." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/analytics" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Analytics — Laban Panda Khisa" },
+      { name: "twitter:description", content: "API traffic, queue health and payment outcomes at a glance." },
     ],
+    links: [{ rel: "canonical", href: "/analytics" }],
   }),
   component: AnalyticsPage,
 });

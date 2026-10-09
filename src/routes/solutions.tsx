@@ -12,7 +12,26 @@ export const Route = createFileRoute("/solutions")({
       { name: "description", content: "Websites, e-commerce, POS, school, hospital, HR, SACCO and financial systems by Pandatechs." },
       { property: "og:title", content: "Systems & Solutions — Pandatechs" },
       { property: "og:description", content: "Every system we build, from starter websites to financial platforms." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/solutions" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Systems & Solutions — Pandatechs" },
+      { name: "twitter:description", content: "Every system we build, from starter websites to financial platforms." },
     ],
+    links: [{ rel: "canonical", href: "/solutions" }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Pandatechs software systems",
+        itemListElement: [
+          "Starter websites", "Business websites", "E-commerce systems", "POS systems",
+          "School management systems", "Hospital management systems", "HR and payroll systems",
+          "SACCO and microfinance systems", "Financial platforms",
+        ].map((name, position) => ({ "@type": "ListItem", position: position + 1, name })),
+      }),
+    }],
   }),
   component: SolutionsPage,
 });
