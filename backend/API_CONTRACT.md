@@ -106,4 +106,13 @@ Status codes: `401` unauthenticated, `403` unauthorised, `404` missing,
 
 ## Company solutions
 
-`GET /api/company/solutions` → `{ data: Solution[] }` where Solution = `{ slug, name, tier: "Starter"|"Business"|"Enterprise", category, summary, features: string[] }`.
+| Method | Endpoint | Returns |
+| ------ | -------- | ------- |
+| GET | `/company` | `{ name, tagline, website, phone, location, shellCode, ceo }` |
+| GET | `/company/solutions` | `Solution[]` |
+
+`ceo` is `{ name, role, bio }`.
+
+`Solution` is `{ slug, name, tier: "Starter"|"Business"|"Enterprise", category, summary, features: string[] }`.
+
+See [`API_MATRIX.md`](./API_MATRIX.md) for the complete endpoint-by-endpoint matrix, validation, authorization, response codes, cache behavior, and example payloads.

@@ -4,6 +4,9 @@ Scaffold for the portfolio API. These files are source of truth for the API the
 React frontend already speaks (see `API_CONTRACT.md`). They are not executed by
 the Lovable preview — copy this folder into a Laravel 12 application.
 
+- `API_CONTRACT.md` defines shared resource shapes and infrastructure expectations.
+- `API_MATRIX.md` lists every endpoint with auth, validation, responses, caching and implementation status.
+
 ```
 backend/
 ├── API_CONTRACT.md
