@@ -12,7 +12,13 @@ export const Route = createFileRoute("/lab")({
       },
       { property: "og:title", content: "Engineering lab — Laban Panda Khisa" },
       { property: "og:description", content: "A working terminal and contribution graph inside the portfolio." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/lab" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Engineering lab — Laban Panda Khisa" },
+      { name: "twitter:description", content: "A working terminal and contribution graph inside the portfolio." },
     ],
+    links: [{ rel: "canonical", href: "/lab" }],
   }),
   component: LabPage,
 });

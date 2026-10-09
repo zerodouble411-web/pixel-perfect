@@ -11,7 +11,13 @@ export const Route = createFileRoute("/architecture")({
       },
       { property: "og:title", content: "Architecture explorer — Laban Panda Khisa" },
       { property: "og:description", content: "Click through the request flow: client, API, Redis, workers, database." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/architecture" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Architecture explorer — Laban Panda Khisa" },
+      { name: "twitter:description", content: "Click through the request flow: client, API, Redis, workers, database." },
     ],
+    links: [{ rel: "canonical", href: "/architecture" }],
   }),
   component: ArchitecturePage,
 });
