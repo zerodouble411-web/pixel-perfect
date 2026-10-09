@@ -1,4 +1,4 @@
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SolutionCard } from "@/components/solution-card";
@@ -22,8 +22,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { data: company } = useSuspenseQuery({ queryKey: ["company"], queryFn: api.company });
+  const { data: company } = useQuery({ queryKey: ["company"], queryFn: api.company });
   const { data: solutions = [] } = useQuery({ queryKey: ["solutions"], queryFn: api.solutions });
+  if (!company) return null;
   const highlighted = solutions.filter((s) => ["pos", "school-management", "hospital-management", "financial-platform", "starter-website", "sacco-microfinance"].includes(s.slug));
 
   return (
